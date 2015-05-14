@@ -29,13 +29,20 @@ public class Engine extends Canvas {
 	private List<Updateable> updateList = new LinkedList<>();
 	private List<GameObjects> objectList = new LinkedList<>();
 	
+	public List<GameObjects> getObjectList() {
+		return objectList;
+	}
+
 	private Main main;
 	private Game game;
 	private Input input;
+
+	private static Engine engine;
 	
 	
 	public Engine(Main main) {
 		this.main = main;
+		this.engine = this;
 	}
 	
 	private void initialized() {
@@ -179,7 +186,11 @@ public class Engine extends Canvas {
         deltaTime = (long)1e9 / ups;
     }
 	
-	 public int getFPS() {
+	public int getFPS() {
 	        return FPS;
-	    }
+	}
+	
+	public static Engine getEngine() {
+		return engine;
+	}
 }

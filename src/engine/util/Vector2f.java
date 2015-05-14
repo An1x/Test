@@ -56,6 +56,14 @@ public class Vector2f implements Serializable {
 	}
 	
 	/**
+	 * Add a vector from another vector and place the result in a destination vector.
+	 * @return another vector.
+	 */
+	public static Vector2f add(Vector2f vector1, Vector2f vector2) {
+		return new Vector2f(vector1.x + vector2.x, vector1.y + vector2.y);
+	}
+	
+	/**
 	 * Subtract a vector from another vector and place the result in a destination vector.
 	 * @return another vector.
 	 */

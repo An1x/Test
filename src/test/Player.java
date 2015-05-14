@@ -1,7 +1,10 @@
 package test;
 
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
+import main.Main;
+import engine.image.Image;
 import engine.interfaces.GameObjects;
 import engine.util.Input;
 import engine.util.State;
@@ -9,18 +12,24 @@ import engine.util.Vector2f;
 
 public class Player implements GameObjects{
 
-	private Vector2f position = new Vector2f(0, 0);
-	private Vector2f target = new Vector2f(0, 0);
+	private Vector2f position = new Vector2f(Main.WIDTH/2, Main.HEIGHT/2);
+	private BufferedImage img = Image.getSubImage(Image.loadBufferedImage("/image/playersprites.gif"), 30, 30, 1, 1, 30, 30);
 	
-	private Vector2f mouse = new Vector2f();
-	
+	public Vector2f getPosition() {
+		return position;
+	}
 
-	
+
+	public void setPosition(Vector2f position) {
+		this.position = position;
+	}
+
+
 	public Player() {
-		//img = Image.getSubImage(Image.loadBufferedImage("/image/tiles.png"), 50, 50, 1, 9, 32, 40);
 		
 		
-		position.set(100, 100);
+		
+		
 		
 		
 		
@@ -39,14 +48,14 @@ public class Player implements GameObjects{
 		
 		
 		
-		mouse.set(Input.getAxis("VERTICAL"), Input.getAxis("HORIZONTAL"));
+		
 		
 		
 	}
 
 	@Override
 	public void render(Graphics g) {
-		//g.drawImage(img, (int)position.getX()- img.getWidth()/2 , (int)position.getY()- img.getHeight()/2 , null);
+		g.drawImage(img, (int)position.getX(), (int)position.getY(), null);
 		
 		
 	}
